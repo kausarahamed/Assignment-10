@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Package = ({ packag }) => {
   const navigate = useNavigate();
   const { name, price, img, description } = packag;
+
   return (
     <div>
       <div className="mx-5 mb-10 bg-gray-200 rounded-xl h-[550px] relative">

@@ -1,0 +1,24 @@
+[
+
+    {
+        "id": 1,
+        "name": "Mark Saddam",
+        "comment": "Adam is knowledgeable, conscientious, and caring. He is an excellent tutor and it has been a pleasure to use his services. Thank you so much, Adam. ",
+        "ratting": 4.5
+    },
+
+    {
+      "id": 2,
+        "name": "Jhon rafi",
+        "comment":"Tahimina has been tutoring my daughter for the last 2 years and I can't recommend her enough! My daughter got an A in her Nat 5 Biology thanks to all her help and hard work. My daughter is very quiet and lacks confidence at times, but Tahimina was brilliant with her and I could see my daughters confidence grow very quickly. Here's hoping for a good Higher Human Biology result this year with her help too",
+        "ratting": 4
+    },
+
+    {
+        "id": 3,
+        "name": "Mike jhanker",
+        "comment": "It is better to be thought unwise than to speak and remove all doubt. Wiel do better in life if we follow that.Any body produced by any of the manufacturers that are typically talked about on this site will have excellent IQ that could only be dreamed about 12 years ago.I missed the long term steadiness of my F100 or F3, with all the muscle memory built up over time using the cameras for years.",
+        "ratting":4.6
+    }  
+    
+]
