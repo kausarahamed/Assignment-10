@@ -3,6 +3,7 @@ import "./App.css";
 import About from "./components/About/About";
 import Login from "./components/Auth/Login/Login";
 import RequierAuth from "./components/Auth/RequierAuth/RequierAuth";
+import Blogs from "./components/Blogs/Blogs";
 import Home from "./components/Home/Home";
 import Services from "./components/Home/Services";
 import Package from "./components/Package/Package";
@@ -14,7 +15,7 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/package" element={<Package></Package>}></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="about" element={<About></About>}></Route>
         <Route
           path="services"
