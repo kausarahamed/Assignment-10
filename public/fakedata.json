@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Home Tutoring",
+        "name": "Home Package",
         "price": "$400",
         "description": "It's a unique opportunity to learn in the home with your expected tutor in different categories. Everything is in favor of your need.",
         "img": "https://i.ibb.co/CQxfVd7/home.webp"
@@ -9,14 +9,14 @@
     },
     {
         "id": 2,
-        "name": "Online Tutoring",
+        "name": "Online Package",
         "price": "$300",
-        "description": "Connect with the best tutor from anywhere and take online classes by using different tools. Make your life more easier with this process",
+        "description": "Connect with the best tutor from anywhere and take online classes by using different tools. Make your life more easier with this process.",
         "img": "https://i.ibb.co/26pZ3kS/online.jpg"
     },
     {
         "id": 3,
-        "name": "Group Tutoring",
+        "name": "Group Package",
         "price": "$250",
         "description": "A group of students can full fill their hunger for learning at an affordable money range. Get ready for the competitive world!",
         "img":"https://i.ibb.co/VM6pLLR/group.jpg"

@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <div className="pt-10 grid grid-cols-3 gap-5 py10">
+      <div className="pt-10 grid md:grid-cols-3 gap-5 py10">
         {packags.map((packag) => (
           <Package key={packag.id} packag={packag}></Package>
         ))}
