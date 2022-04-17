@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Package = ({ packag }) => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const { name, price, img, description } = packag;
   return (
     <div>
@@ -15,6 +15,14 @@ const Package = ({ packag }) => {
         <div className="text-xl font-sans p-5 ">
           <span className="text-2xl">Price: </span>
           {price}
+        </div>
+        <div className="flex justify-center">
+          <button
+            onClick={() => navigate("/checkout")}
+            className="bg-blue-300 hover:bg-blue-400 text-xl font-serif font-bold px-5 py-1 rounded text-center pb-1 absolute bottom-5"
+          >
+            Checkout
+          </button>
         </div>
       </div>
     </div>
