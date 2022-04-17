@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Package from "../Package/Package";
+import Footer from "../Shared/Footer";
 import Banner from "./Banner";
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
           <Package key={packag.id} packag={packag}></Package>
         ))}
       </div>
+      <Footer></Footer>
     </div>
   );
 };
