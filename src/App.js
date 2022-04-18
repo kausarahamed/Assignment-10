@@ -7,7 +7,6 @@ import RequierAuth from "./components/Auth/RequierAuth/RequierAuth";
 import Blogs from "./components/Blogs/Blogs";
 import Checkout from "./components/checkout/Checkout";
 import Home from "./components/Home/Home";
-import Services from "./components/Home/Services";
 import Notfound from "./components/notfound/Notfound";
 import Footer from "./components/Shared/Footer";
 import Header from "./components/Shared/Header";
@@ -22,10 +21,10 @@ function App() {
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/checkout" element={<Checkout></Checkout>}></Route>
         <Route
-          path="services"
+          path="/checkout"
           element={
             <RequierAuth>
-              <Services></Services>
+              <Checkout></Checkout>
             </RequierAuth>
           }
         ></Route>
