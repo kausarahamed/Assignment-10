@@ -1,163 +1,125 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
 
 const Register = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+  const handleConfirmPassword = (e) => {
+    setConfirmPassword(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      console.log(" password mich match");
+      return;
+    }
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
+  };
+  if (user) {
+    console.log("login success", { id: "login" });
+    navigate("/");
+  }
+
   return (
-    <div>
-      <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-        <div
-          class="
-          flex flex-col
-          bg-white
-          shadow-md
-          px-4
-          sm:px-6
-          md:px-8
-          lg:px-10
-          py-8
-          rounded-3xl
-        "
-        >
-          <div class="font-medium self-center text-xl sm:text-3xl text-gray-800">
-            Welcome Back
-          </div>
-          <div class="mt-4 self-center text-xl sm:text-sm text-gray-800">
-            Enter your credentials to access your account
-          </div>
-
-          <div class="mt-10">
-            <form action="#">
-              <div class="flex flex-col mb-5">
-                <label
-                  for="email"
-                  class="mb-1 text-xs tracking-wide text-gray-600"
-                >
-                  E-Mail Address:
-                </label>
-
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  class="
-                    text-sm
-                    placeholder-gray-500
-                    pl-10
-                    pr-4
-                    rounded-2xl
-                    border border-gray-400
-                    w-full
-                    py-2
-                    focus:outline-none focus:border-blue-400
-                  "
-                  placeholder="Enter your email"
-                />
-              </div>
-              <div class="flex flex-col mb-6">
-                <label
-                  for="password"
-                  class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
-                >
-                  Password:
-                </label>
-
-                <input
-                  id="password"
-                  type="password"
-                  name="password"
-                  class="
-                    text-sm
-                    placeholder-gray-500
-                    pl-10
-                    pr-4
-                    rounded-2xl
-                    border border-gray-400
-                    w-full
-                    py-2
-                    focus:outline-none focus:border-blue-400
-                  "
-                  placeholder="Enter your password"
-                />
-              </div>
-              <div class="flex flex-col mb-6">
-                <label
-                  for="password"
-                  class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
-                >
-                  Password:
-                </label>
-
-                <input
-                  id="password"
-                  type="password"
-                  name="password"
-                  class="
-                    text-sm
-                    placeholder-gray-500
-                    pl-10
-                    pr-4
-                    rounded-2xl
-                    border border-gray-400
-                    w-full
-                    py-2
-                    focus:outline-none focus:border-blue-400
-                  "
-                  placeholder="Enter your password"
-                />
-              </div>
-
-              <div class="flex w-full">
-                <button
-                  type="submit"
-                  class="
-                  flex
-                  mt-2
-                  items-center
-                  justify-center
-                  focus:outline-none
-                  text-white text-sm
-                  sm:text-base
-                  bg-blue-500
-                  hover:bg-blue-600
-                  rounded-2xl
-                  py-2
-                  w-full
-                  transition
-                  duration-150
-                  ease-in
-                "
-                >
-                  <span class="mr-2 uppercase">Sign In</span>
-                  <span>
-                    <svg
-                      class="h-6 w-6"
-                      fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </span>
-                </button>
-              </div>
-            </form>
-          </div>
-          <div class="flex justify-center items-center mt-6">
-            <span class="ml-2">
-              You have an account?
-              <Link
-                to="/login"
-                class="text-xs ml-2 text-blue-500 font-semibold"
-              >
-                Log in
-              </Link>
-            </span>
-          </div>
+    <div className="login w-11/12  md:w-1/3 mx-auto border-2 my-5 p-10 rounded-xl font-serif">
+      <form onSubmit={handleSubmit}>
+        <h1 className="text-2xl font-bold text-center text-blue-500">
+          Please Register...
+        </h1>
+        <div className="my-3">
+          <label className="block" htmlFor="name">
+            Name
+          </label>
+          <input
+            onBlur={handleName}
+            className=" btn text-xl border w-full p-2"
+            type="text"
+            name="name"
+            id=""
+          />
         </div>
-      </div>
+        <div className="my-3">
+          <label className="block" htmlFor="email">
+            Email
+          </label>
+          <input
+            onBlur={handleEmail}
+            className="btn text-xl border w-full p-2"
+            type="email"
+            name="email"
+            required
+          />
+        </div>
+        <div className="my-3">
+          <label className="block" htmlFor="password">
+            Password
+          </label>
+          <input
+            onBlur={handlePassword}
+            className="border w-full btn text-xl p-2"
+            type="password"
+            name="password"
+            required
+          />
+        </div>
+        <div className="my-3">
+          <label className="block" htmlFor="Confirm password">
+            Confirm Password
+          </label>
+          <input
+            onBlur={handleConfirmPassword}
+            className="border w-full btn text-2xl p-2"
+            type="password"
+            name="confirm password"
+            required
+          />
+        </div>
+        {(loading || updating) && <p>Loading</p>}
+        {(error || updateError) && (
+          <p className="text-red-600">
+            {error.message} {updateError.message}
+          </p>
+        )}
+        <div className="flex justify-center my-3">
+          <input
+            className="bg-blue-600 text-xl font-bold px-5 py-2 text-white rounded-xl mt-2"
+            type="submit"
+            value="Register"
+          />
+        </div>
+      </form>
+      <p className="text-xl text-center">
+        Already have an account?
+        <Link className="text-blue-500 hover:text-orange-600 ml-3" to="/login">
+          Login
+        </Link>
+      </p>
     </div>
   );
 };
