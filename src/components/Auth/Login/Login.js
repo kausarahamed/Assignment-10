@@ -93,7 +93,7 @@ const Login = () => {
       </form>
 
       <p className="text-xl text-center">
-        First time on the Tourist guid?
+        First time?
         <Link
           className="text-blue-500 hover:text-orange-600 ml-3"
           to="/register"

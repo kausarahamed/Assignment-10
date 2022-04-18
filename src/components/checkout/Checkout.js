@@ -4,6 +4,7 @@ const Checkout = () => {
   return (
     <div>
       <h2>jhdsgfksdmbvfkjsdbgkj</h2>
+      <div className="h-96">kdnfgsdkmnfsdkn</div>
     </div>
   );
 };

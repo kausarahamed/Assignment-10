@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
@@ -11,6 +12,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [signInWithGoogle, userOne] = useSignInWithGoogle(auth);
 
   const navigate = useNavigate();
 
@@ -41,7 +43,7 @@ const Register = () => {
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
   };
-  if (user) {
+  if (user || userOne) {
     console.log("login success", { id: "login" });
     navigate("/");
   }
@@ -121,7 +123,7 @@ const Register = () => {
         </Link>
       </p>
       <div className="text-2xl text-center mt-3 bg-slate-400 hover:bg-slate-500  font-bold px-5 py-2 text-white rounded-xl ">
-        <button>SignIn with Google</button>
+        <button onClick={() => signInWithGoogle()}>SignIn with Google</button>
       </div>
     </div>
   );
