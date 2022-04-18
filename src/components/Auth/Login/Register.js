@@ -120,6 +120,9 @@ const Register = () => {
           Login
         </Link>
       </p>
+      <div className="text-2xl text-center mt-3 bg-slate-400 hover:bg-slate-500  font-bold px-5 py-2 text-white rounded-xl ">
+        <button>SignIn with Google</button>
+      </div>
     </div>
   );
 };
