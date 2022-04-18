@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "./../../firebase.init";
@@ -12,6 +13,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
+  const [signInWithGoogle, userOne] = useSignInWithGoogle(auth);
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
@@ -35,7 +37,7 @@ const Login = () => {
     sendPasswordResetEmail(email);
   };
 
-  if (user) {
+  if (user || userOne) {
     navigate(from, { replace: true });
   }
 
@@ -106,7 +108,7 @@ const Login = () => {
         </span>
       </p>
       <div className="text-2xl text-center mt-3 bg-slate-400 hover:bg-slate-500  font-bold px-5 py-2 text-white rounded-xl ">
-        <button>SignIn with Google</button>
+        <button onClick={() => signInWithGoogle()}>SignIn with Google</button>
       </div>
     </div>
   );

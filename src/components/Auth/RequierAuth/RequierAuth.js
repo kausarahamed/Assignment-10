@@ -3,7 +3,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import { auth } from "../../firebase.init";
 
 const RequierAuth = ({ childern }) => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const location = useLocation();
   if (user) {
     return childern;
