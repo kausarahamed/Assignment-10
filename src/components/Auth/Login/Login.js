@@ -5,6 +5,8 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import auth from "./../../firebase.init";
 
 const Login = () => {
@@ -35,6 +37,7 @@ const Login = () => {
 
   const handleResetPassword = () => {
     sendPasswordResetEmail(email);
+    toast("Email Send");
   };
 
   if (user || userOne) {
@@ -110,6 +113,7 @@ const Login = () => {
       <div className="text-2xl text-center mt-3 bg-slate-400 hover:bg-slate-500  font-bold px-5 py-2 text-white rounded-xl ">
         <button onClick={() => signInWithGoogle()}>SignIn with Google</button>
       </div>
+      <ToastContainer />
     </div>
   );
 };
