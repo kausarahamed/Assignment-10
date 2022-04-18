@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Package from "../Package/Package";
 import Reviwe from "../reviwe/Reviwe";
-import Footer from "../Shared/Footer";
 import Banner from "./Banner";
 
 const Home = () => {
@@ -20,7 +19,6 @@ const Home = () => {
         ))}
       </div>
       <Reviwe></Reviwe>
-      <Footer></Footer>
     </div>
   );
 };

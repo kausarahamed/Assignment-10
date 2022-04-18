@@ -2,12 +2,14 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import About from "./components/About/About";
 import Login from "./components/Auth/Login/Login";
+import Register from "./components/Auth/Login/Register";
 import RequierAuth from "./components/Auth/RequierAuth/RequierAuth";
 import Blogs from "./components/Blogs/Blogs";
 import Checkout from "./components/checkout/Checkout";
 import Home from "./components/Home/Home";
 import Services from "./components/Home/Services";
 import Notfound from "./components/notfound/Notfound";
+import Footer from "./components/Shared/Footer";
 import Header from "./components/Shared/Header";
 
 function App() {
@@ -27,9 +29,11 @@ function App() {
             </RequierAuth>
           }
         ></Route>
-        <Route path="login" element={<Login></Login>}></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
         <Route path="*" element={<Notfound></Notfound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }

@@ -28,9 +28,8 @@ const Blogs = () => {
           a top level secruity for a user and develpoer.Firebase oversees all
           information real-time within the database.More often than not,
           verification by a server involves the utilize of a client title and
-          watchword. Other ways to confirm can be through cards, retina scans,
-          voice recognition, and fingerprints.It is also one of the best backend
-          services.
+          watchword. other options is to implement authentication are
+          AppWrite,AWS Amplify,Kuzzle,Parse.
         </p>
       </div>
       <div className="mx-5 mb-10 bg-white rounded-xl h-[500px] relative shadow-2xl p-3">
@@ -40,8 +39,8 @@ const Blogs = () => {
         </h2>
         <p className="text-xl mt-4 ">
           There are many services which Firebase provides, Most useful of them
-          are: Cloud Firestore. Cloud Functions. Hosting. Cloud Storage. Google
-          Analytics. Predictions. Cloud Messaging. Dynamic Links. Remote Config.
+          are: Cloud Firestore, Cloud Functions, Hosting, Cloud Storage, Google
+          Analytics, Predictions, Cloud Messaging, Dynamic Links, Remote Config.
         </p>
       </div>
     </div>
